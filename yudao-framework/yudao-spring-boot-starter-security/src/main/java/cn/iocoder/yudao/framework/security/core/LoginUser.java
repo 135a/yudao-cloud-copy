@@ -27,7 +27,7 @@ public class LoginUser {
     /**
      * 用户类型
      *
-     * 关联 {@link UserTypeEnum}
+
      */
     private Integer userType;
     /**

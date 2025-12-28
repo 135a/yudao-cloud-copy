@@ -5,7 +5,7 @@ import cn.iocoder.yudao.module.ai.controller.admin.model.vo.model.AiModelPageReq
 import cn.iocoder.yudao.module.ai.controller.admin.model.vo.model.AiModelSaveReqVO;
 import cn.iocoder.yudao.module.ai.dal.dataobject.model.AiModelDO;
 import cn.iocoder.yudao.module.ai.framework.ai.core.model.midjourney.api.MidjourneyApi;
-import cn.iocoder.yudao.module.ai.framework.ai.core.model.suno.api.SunoApi;
+//import cn.iocoder.yudao.module.ai.framework.ai.core.model.suno.api.SunoApi;
 import dev.tinyflow.core.Tinyflow;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.image.ImageModel;
@@ -115,12 +115,12 @@ public interface AiModelService {
      */
     MidjourneyApi getMidjourneyApi(Long id);
 
-    /**
-     * 获得 SunoApi 对象
-     *
-     * @return SunoApi 对象
-     */
-    SunoApi getSunoApi();
+//    /**
+//     * 获得 SunoApi 对象
+//     *
+//     * @return SunoApi 对象
+//     */
+//    SunoApi getSunoApi();
 
     /**
      * 获得 VectorStore 对象

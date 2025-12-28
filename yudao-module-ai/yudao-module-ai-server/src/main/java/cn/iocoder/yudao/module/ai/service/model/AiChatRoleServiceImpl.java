@@ -6,9 +6,12 @@ import cn.iocoder.yudao.module.ai.controller.admin.model.vo.chatRole.AiChatRoleP
 import cn.iocoder.yudao.module.ai.controller.admin.model.vo.chatRole.AiChatRoleSaveMyReqVO;
 import cn.iocoder.yudao.module.ai.controller.admin.model.vo.chatRole.AiChatRoleSaveReqVO;
 import cn.iocoder.yudao.module.ai.dal.dataobject.model.AiChatRoleDO;
+import cn.iocoder.yudao.module.ai.dal.mysql.model.AiChatRoleMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import cn.iocoder.yudao.module.ai.enums.ErrorCodeConstants.*;
+
+import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,7 +27,8 @@ import static cn.iocoder.yudao.module.ai.enums.ErrorCodeConstants.CHAT_ROLE_NOT_
 @Service
 @Slf4j
 public class AiChatRoleServiceImpl implements AiChatRoleService {
-
+    @Resource
+    private AiChatRoleMapper chatRoleMapper;
     @Override
     public Long createChatRole(AiChatRoleSaveReqVO createReqVO) {
         return 0L;

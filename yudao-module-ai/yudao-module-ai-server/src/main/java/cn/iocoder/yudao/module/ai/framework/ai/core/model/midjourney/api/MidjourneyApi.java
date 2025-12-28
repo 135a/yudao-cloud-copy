@@ -8,13 +8,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.MediaType;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
+import org.springframework.http.MediaType;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -30,13 +28,13 @@ import java.util.function.Predicate;
 @Slf4j
 public class MidjourneyApi {
 
-    private final Predicate<HttpStatusCode> STATUS_PREDICATE = status -> !status.is2xxSuccessful();
+    private final Predicate<HttpStatus> STATUS_PREDICATE = status -> !status.is2xxSuccessful();
 
     private final Function<Object, Function<ClientResponse, Mono<? extends Throwable>>> EXCEPTION_FUNCTION =
             reqParam -> response -> response.bodyToMono(String.class).handle((responseBody, sink) -> {
-                HttpRequest request = response.request();
-                log.error("[midjourney-api] 调用失败！请求方式:[{}]，请求地址:[{}]，请求参数:[{}]，响应数据: [{}]",
-                        request.getMethod(), request.getURI(), reqParam, responseBody);
+                // 由于 ClientResponse.request() 方法在新版本中可能不存在，我们暂时不记录请求详情
+                log.error("[midjourney-api] 调用失败！请求参数:[{}]，响应数据: [{}]",
+                        reqParam, responseBody);
                 sink.error(new IllegalStateException("[midjourney-api] 调用失败！"));
             });
 

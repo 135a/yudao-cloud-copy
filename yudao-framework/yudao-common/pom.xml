@@ -157,5 +157,16 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <forceCreation>true</forceCreation> <!-- 即使无 class 也生成 jar -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

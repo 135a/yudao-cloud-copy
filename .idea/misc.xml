@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/yudao-dependencies/pom.xml" />
         <option value="$PROJECT_DIR$/yudao-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/yudao-framework/yudao-spring-boot-starter-mybatis/pom.xml" />
       </list>
     </option>
   </component>
