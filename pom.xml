@@ -14,6 +14,7 @@
         <module>yudao-module-ai/yudao-module-ai-api</module>
         <module>yudao-module-ai/yudao-module-ai-server</module>
         <module>yudao-framework</module>
+        <module>yudao-framework/yudao-spring-boot-starter-security</module>
         <!--        <module>yudao-framework</module>-->
         <!-- Server 主项目 -->
 <!--        <module>yudao-server</module>-->
