@@ -2,10 +2,15 @@ package cn.iocoder.yudao.module.ai.service.chat;
 
 import cn.hutool.core.lang.Assert;
 import cn.iocoder.yudao.module.ai.controller.admin.chat.vo.conversation.AiChatConversationCreateMyReqVO;
+import cn.iocoder.yudao.module.ai.dal.dataobject.chat.AiChatConversationDO;
+import cn.iocoder.yudao.module.ai.dal.dataobject.model.AiChatRoleDO;
+import cn.iocoder.yudao.module.ai.dal.dataobject.model.AiModelDO;
+import cn.iocoder.yudao.module.ai.service.model.AiChatRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import javax.annotation.Resource;
 import java.util.Objects;
 
 /**
@@ -17,7 +22,10 @@ import java.util.Objects;
 @Validated
 @Slf4j
 public class AiChatConversationServiceImpl implements AiChatConversationService {
-
+    @Resource
+    private AiChatRoleService chatRoleService;
+    @Resource
+    private AiModelService modalService;
     @Override
     public Long createChatConversationMy(AiChatConversationCreateMyReqVO createReqVO, Long userId) {
         // 1.1 获得 AiChatRoleDO 聊天角色
